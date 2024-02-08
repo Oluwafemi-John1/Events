@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="checkbox1" type="checkbox"/>
+    <label for="checkbox1">I have a car</label><br/>
+    <input id="checkbox2" type="checkbox"/>
+    <label for="checkbox2">I have a car</label><br/>
+    <input id="checkbox3" type="checkbox"/>
+    <label for="checkbox3">I have a car</label><br/>
+    <input id="checkbox4" type="checkbox"/>
+    <label for="checkbox4">I have a car</label>
+    <div class="progress">
+        <div class="progress-fill"></div>
+    </div>
+</body>
+<script>
+    
+    const processAction = (e)=>{
+        console.log(e)
+        const status = e.target.checked
+        console.log(status,'I am status')
+        const progressFill = document.getElementsByClassName('progress-fill')
+        console.log(progressFill)
+        const width = progressFill[0].style.width
+        console.log(width,'I am width')
+        const testString = 'jumpjump'
+        console.log(testString)
+        console.log(testString.substring(0,testString.length-1))
+        const calculatedWidth = Number(width.substring(0,width.length-1))
+        if(status){
+            progressFill[0].style.width = `${calculatedWidth+25}%`
+            // progressFill[0].style.width = `${width+25}%`
+        }else{
+            console.log('kk')
+            progressFill[0].style.width = `${calculatedWidth-25}%`
+        }
+    }
+    const checkbox1 = document.getElementById("checkbox1")
+    const checkbox2 = document.getElementById("checkbox2")
+    const checkbox3 = document.getElementById("checkbox3")
+    const checkbox4 = document.getElementById("checkbox4")
+
+    checkbox1.addEventListener("click",processAction)
+    checkbox2.addEventListener("click",processAction)
+    checkbox3.addEventListener("click",processAction)
+    checkbox4.addEventListener("click",processAction)
+</script>
+<style>
+    .progress{
+        height: 20px;
+        border-radius: 10px;
+        background-color: aliceblue;
+    }
+    .progress-fill{
+        background-color: green;
+        height: 20px;
+        border-radius: 10px;
+        width: 0%;
+        transition: 0.5s;
+    }
+</style>
+</html>

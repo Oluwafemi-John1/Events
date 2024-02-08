@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button id="button">Change colour</button>
+   
+    <input id="inp" type="text" value="qwerty"/>
+    <div id="response"></div>
+</body>
+<script>
+    // const alertText=()=>{
+    //     alert('Hi')
+    // }
+    const button = document.getElementById("button")
+    button.addEventListener("click",(e)=>{
+        const RN1 = Math.round(Math.random()*255)
+        const RN2 = Math.round(Math.random()*255)
+        const RN3 = Math.round(Math.random()*255)
+        document.body.style.backgroundColor = `rgb(${RN1},${RN2},${RN3})`
+        console.log(RN1,RN2,RN3)
+    })
+
+    const inputText = document.getElementById("inp")
+    inputText.addEventListener("keyup",(e)=>{
+        console.log(e)
+        const response = document.getElementById('response')
+        response.innerHTML = e.target.value
+        
+    })
+    // inputText.addEventListener('mouseover',)
+</script>
+<style>
+    #button{
+        background-color: rgb(12,23,45);
+    }
+</style>
+</html>
